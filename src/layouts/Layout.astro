@@ -1,0 +1,191 @@
+---
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="UNKN Studio - Premium Content Creation Agency crafting cinematic experiences that captivate and inspire" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="video production, content creation, brand storytelling, cinematic videos, creative agency" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-black text-white overflow-x-hidden antialiased">
+    <!-- Custom Cursor -->
+    <div id="cursor" class="cursor"></div>
+    <div id="cursor-dot" class="cursor-dot"></div>
+    
+    <div id="smooth-wrapper">
+      <div id="smooth-content">
+        <slot />
+      </div>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="../scripts/lenis.js"></script>
+    <script src="../scripts/animations.js"></script>
+  </body>
+</html>
+
+<style is:global>
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: #000000;
+    cursor: none;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* Custom Cursor Styles */
+  .cursor {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: difference;
+    transition: transform 0.15s ease-out, border-color 0.15s ease-out;
+    transform: translate(-50%, -50%);
+  }
+
+  .cursor-dot {
+    position: fixed;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10000;
+    transition: transform 0.05s ease-out;
+    transform: translate(-50%, -50%);
+  }
+
+  .cursor.hover {
+    transform: translate(-50%, -50%) scale(1.5);
+    border-color: white;
+  }
+
+  /* Hide cursor on touch devices */
+  @media (hover: none) {
+    .cursor,
+    .cursor-dot {
+      display: none;
+    }
+    
+    html,
+    body {
+      cursor: auto;
+    }
+  }
+
+  /* Clean, minimalist scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.4);
+  }
+
+  /* Selection styling */
+  ::selection {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+  }
+
+  /* Smooth transitions for essential elements only */
+  a, button {
+    transition: color 0.2s ease, background-color 0.2s ease, opacity 0.2s ease;
+  }
+
+  /* Hover states for interactive elements */
+  a, button, [role="button"], .interactive {
+    cursor: none;
+  }
+</style>
+
+<script is:inline>
+  // Custom cursor functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const cursor = document.getElementById('cursor');
+    const cursorDot = document.getElementById('cursor-dot');
+    
+    if (!cursor || !cursorDot) return;
+    
+    let mouseX = 0;
+    let mouseY = 0;
+    let cursorX = 0;
+    let cursorY = 0;
+    
+    // Update mouse position
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+    
+    // Smooth cursor follow
+    function updateCursor() {
+      const speed = 0.1;
+      cursorX += (mouseX - cursorX) * speed;
+      cursorY += (mouseY - cursorY) * speed;
+      
+      cursor.style.left = cursorX + 'px';
+      cursor.style.top = cursorY + 'px';
+      
+      // Dot follows immediately
+      cursorDot.style.left = mouseX + 'px';
+      cursorDot.style.top = mouseY + 'px';
+      
+      requestAnimationFrame(updateCursor);
+    }
+    
+    updateCursor();
+    
+    // Add hover effects for interactive elements
+    function updateInteractiveElements() {
+      const interactiveElements = document.querySelectorAll('a, button, [role="button"], .interactive, .btn-primary, .btn-secondary, .work-item, .pricing-item');
+      
+      interactiveElements.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+          cursor.classList.add('hover');
+        });
+        
+        el.addEventListener('mouseleave', () => {
+          cursor.classList.remove('hover');
+        });
+      });
+    }
+    
+    updateInteractiveElements();
+    
+    // Re-run when new content is loaded
+    setTimeout(updateInteractiveElements, 1000);
+  });
+</script> 

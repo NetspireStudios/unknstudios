@@ -1,0 +1,925 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Preloader from '../components/Preloader.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+---
+
+<Layout title="UNKN Studio - Cinematic Content Creation">
+  <!-- Preloader -->
+  <Preloader />
+  
+  <!-- Navigation -->
+  <Navbar />
+  
+  <!-- Main Content -->
+  <main id="main-content">
+    <!-- Hero Section -->
+    <Hero />
+    
+    <!-- Services Section -->
+    <section id="services" class="section-services relative">
+      <div class="section-bg">
+        <div class="bg-accent-orange"></div>
+      </div>
+      
+      <div class="container-large">
+        <div class="services-grid">
+          <!-- Section Header -->
+          <div class="services-header">
+            <div class="section-number">01</div>
+            <h2 class="section-title">
+              What We
+              <span class="title-accent">Create</span>
+            </h2>
+            <p class="section-description">
+              We craft cinematic content that elevates brands and captivates audiences through strategic storytelling and visual excellence.
+            </p>
+          </div>
+          
+          <!-- Services List -->
+          <div class="services-list">
+            <div class="service-item" data-service="video">
+              <div class="service-number">01</div>
+              <div class="service-content">
+                <h3 class="service-title">Video Production</h3>
+                <p class="service-description">
+                  Cinematic storytelling from concept to delivery. We create videos that don't just look good—they drive results.
+                </p>
+                <div class="service-features">
+                  <span>4K Production</span>
+                  <span>Color Grading</span>
+                  <span>Motion Graphics</span>
+                  <span>Sound Design</span>
+                </div>
+              </div>
+              <div class="service-visual">
+                <div class="visual-element video-element"></div>
+              </div>
+            </div>
+
+            <div class="service-item" data-service="strategy">
+              <div class="service-number">02</div>
+              <div class="service-content">
+                <h3 class="service-title">Content Strategy</h3>
+                <p class="service-description">
+                  Data-driven content strategies that amplify your message across all platforms and drive meaningful engagement.
+                </p>
+                <div class="service-features">
+                  <span>Platform Optimization</span>
+                  <span>Audience Analysis</span>
+                  <span>Content Planning</span>
+                  <span>Performance Tracking</span>
+                </div>
+              </div>
+              <div class="service-visual">
+                <div class="visual-element strategy-element"></div>
+              </div>
+            </div>
+
+            <div class="service-item" data-service="direction">
+              <div class="service-number">03</div>
+              <div class="service-content">
+                <h3 class="service-title">Creative Direction</h3>
+                <p class="service-description">
+                  Comprehensive creative oversight ensuring consistency and excellence across all brand touchpoints.
+                </p>
+                <div class="service-features">
+                  <span>Brand Identity</span>
+                  <span>Art Direction</span>
+                  <span>Campaign Design</span>
+                  <span>Visual Guidelines</span>
+                </div>
+              </div>
+              <div class="service-visual">
+                <div class="visual-element direction-element"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work Section -->
+    <section id="work" class="section-work relative">
+      <div class="section-bg">
+        <div class="bg-accent-blue"></div>
+      </div>
+      
+      <div class="container-large">
+        <div class="work-header">
+          <div class="section-number">02</div>
+          <h2 class="section-title">
+            Selected
+            <span class="title-accent">Work</span>
+          </h2>
+        </div>
+        
+        <div class="work-grid">
+          <div class="work-item" data-category="commercial">
+            <div class="work-visual">
+              <div class="work-image"></div>
+              <div class="work-overlay">
+                <div class="play-button"></div>
+              </div>
+            </div>
+            <div class="work-info">
+              <div class="work-category">Commercial</div>
+              <h3 class="work-title">Brand Revolution</h3>
+              <p class="work-client">TechCorp Inc.</p>
+            </div>
+          </div>
+
+          <div class="work-item" data-category="product">
+            <div class="work-visual">
+              <div class="work-image"></div>
+              <div class="work-overlay">
+                <div class="play-button"></div>
+              </div>
+            </div>
+            <div class="work-info">
+              <div class="work-category">Product</div>
+              <h3 class="work-title">Future Vision</h3>
+              <p class="work-client">Innovation Labs</p>
+            </div>
+          </div>
+
+          <div class="work-item" data-category="documentary">
+            <div class="work-visual">
+              <div class="work-image"></div>
+              <div class="work-overlay">
+                <div class="play-button"></div>
+              </div>
+            </div>
+            <div class="work-info">
+              <div class="work-category">Documentary</div>
+              <h3 class="work-title">Human Stories</h3>
+              <p class="work-client">Global Foundation</p>
+            </div>
+          </div>
+
+          <div class="work-item" data-category="social">
+            <div class="work-visual">
+              <div class="work-image"></div>
+              <div class="work-overlay">
+                <div class="play-button"></div>
+              </div>
+            </div>
+            <div class="work-info">
+              <div class="work-category">Social</div>
+              <h3 class="work-title">Cultural Canvas</h3>
+              <p class="work-client">Arts Collective</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="work-cta">
+          <button class="btn-secondary interactive">View All Projects</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="section-pricing relative">
+      <div class="section-bg">
+        <div class="bg-accent-pink"></div>
+      </div>
+      
+      <div class="container-large">
+        <div class="pricing-header">
+          <div class="section-number">03</div>
+          <h2 class="section-title">
+            Investment
+            <span class="title-accent">Plans</span>
+          </h2>
+          <p class="section-description">
+            Transparent pricing for professional creative services tailored to your specific needs and ambitions.
+          </p>
+        </div>
+        
+        <div class="pricing-grid">
+          <div class="pricing-item" data-plan="essential">
+            <div class="pricing-header-item">
+              <h3 class="pricing-title">Essential</h3>
+              <div class="pricing-price">$2,500</div>
+            </div>
+            <div class="pricing-features">
+              <div class="feature-item">Single video project</div>
+              <div class="feature-item">Basic editing & color correction</div>
+              <div class="feature-item">Music & sound design</div>
+              <div class="feature-item">2 revision rounds</div>
+            </div>
+            <button class="btn-primary interactive">Get Started</button>
+          </div>
+
+          <div class="pricing-item featured" data-plan="professional">
+            <div class="pricing-badge">Most Popular</div>
+            <div class="pricing-header-item">
+              <h3 class="pricing-title">Professional</h3>
+              <div class="pricing-price">$5,000</div>
+            </div>
+            <div class="pricing-features">
+              <div class="feature-item">Multi-video campaign</div>
+              <div class="feature-item">Advanced post-production</div>
+              <div class="feature-item">Motion graphics</div>
+              <div class="feature-item">Unlimited revisions</div>
+            </div>
+            <button class="btn-primary interactive">Get Started</button>
+          </div>
+
+          <div class="pricing-item" data-plan="enterprise">
+            <div class="pricing-header-item">
+              <h3 class="pricing-title">Enterprise</h3>
+              <div class="pricing-price">Custom</div>
+            </div>
+            <div class="pricing-features">
+              <div class="feature-item">Full creative partnership</div>
+              <div class="feature-item">Ongoing content strategy</div>
+              <div class="feature-item">Dedicated team</div>
+              <div class="feature-item">Priority support</div>
+            </div>
+            <button class="btn-secondary interactive">Contact Us</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-contact relative">
+      <div class="container-large">
+        <div class="contact-content">
+          <div class="contact-header">
+            <div class="section-number">04</div>
+            <h2 class="section-title">
+              Let's
+              <span class="title-accent">Create</span>
+            </h2>
+            <p class="section-description">
+              Ready to elevate your brand with cinematic content? Let's discuss your vision and bring it to life.
+            </p>
+          </div>
+          
+          <div class="contact-form-wrapper">
+            <form class="contact-form">
+              <div class="form-row">
+                <input type="text" placeholder="Name" class="form-input" required>
+                <input type="email" placeholder="Email" class="form-input" required>
+              </div>
+              <div class="form-row">
+                <select class="form-input form-select" required>
+                  <option value="" disabled selected>Budget Range</option>
+                  <option value="under-5k">Under $5,000</option>
+                  <option value="5k-15k">$5,000 - $15,000</option>
+                  <option value="15k-30k">$15,000 - $30,000</option>
+                  <option value="30k-plus">$30,000+</option>
+                </select>
+              </div>
+              <div class="form-row">
+                <textarea placeholder="Tell us about your project" class="form-input form-textarea" rows="6" required></textarea>
+              </div>
+              <button type="submit" class="btn-primary interactive">Send Message</button>
+            </form>
+          </div>
+          
+          <div class="contact-info">
+            <div class="contact-item">
+              <div class="contact-label">Email</div>
+              <div class="contact-value">hello@unknstudio.com</div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-label">Phone</div>
+              <div class="contact-value">+1 (555) 123-4567</div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-label">Location</div>
+              <div class="contact-value">Los Angeles, CA</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  /* UNKN Studio - Cinematic Design System */
+  
+  /* Root Variables */
+  :root {
+    --color-orange: #FD7504;
+    --color-blue: #34FEFA;
+    --color-pink: #F92178;
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-gray-50: #f8f9fa;
+    --color-gray-100: #e9ecef;
+    --color-gray-400: #6c757d;
+    --color-gray-900: #1a1a1a;
+    
+    --font-family-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-family-display: 'Inter', sans-serif;
+    
+    --container-large: 1400px;
+    --container-medium: 1200px;
+    --container-small: 800px;
+    
+    --section-padding: 160px;
+    --section-padding-mobile: 80px;
+  }
+
+  /* Global Styles */
+  * {
+    box-sizing: border-box;
+  }
+
+  /* Layout Components */
+  .container-large {
+    max-width: var(--container-large);
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  @media (max-width: 768px) {
+    .container-large {
+      padding: 0 20px;
+    }
+  }
+
+  /* Section Backgrounds */
+  .section-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.03;
+    pointer-events: none;
+  }
+
+  .bg-accent-orange {
+    background: linear-gradient(135deg, var(--color-orange) 0%, transparent 70%);
+  }
+
+  .bg-accent-blue {
+    background: linear-gradient(225deg, var(--color-blue) 0%, transparent 70%);
+  }
+
+  .bg-accent-pink {
+    background: linear-gradient(45deg, var(--color-pink) 0%, transparent 70%);
+  }
+
+  /* Typography */
+  .section-number {
+    font-family: var(--font-family-primary);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-gray-400);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .section-title {
+    font-family: var(--font-family-display);
+    font-size: clamp(48px, 8vw, 120px);
+    font-weight: 800;
+    line-height: 0.9;
+    color: var(--color-white);
+    margin-bottom: 32px;
+    letter-spacing: -0.02em;
+  }
+
+  .title-accent {
+    font-weight: 300;
+    font-style: italic;
+    color: var(--color-gray-400);
+  }
+
+  .section-description {
+    font-family: var(--font-family-primary);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--color-gray-400);
+    max-width: 640px;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 32px;
+    font-family: var(--font-family-primary);
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--color-black);
+    background-color: var(--color-white);
+    border: none;
+    border-radius: 0;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: none;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-gray-100);
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 32px;
+    font-family: var(--font-family-primary);
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--color-white);
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 0;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: none;
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--color-white);
+    color: var(--color-black);
+    border-color: var(--color-white);
+  }
+
+  /* Services Section */
+  .section-services {
+    padding: var(--section-padding) 0;
+    background-color: var(--color-black);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 120px;
+    align-items: start;
+  }
+
+  .services-list {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+  }
+
+  .service-item {
+    display: grid;
+    grid-template-columns: 60px 1fr 200px;
+    gap: 40px;
+    align-items: start;
+    padding: 40px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .service-item.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .service-number {
+    font-family: var(--font-family-primary);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-gray-400);
+    letter-spacing: 1px;
+  }
+
+  .service-title {
+    font-family: var(--font-family-display);
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--color-white);
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+
+  .service-description {
+    font-family: var(--font-family-primary);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--color-gray-400);
+    margin-bottom: 24px;
+  }
+
+  .service-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .service-features span {
+    font-family: var(--font-family-primary);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--color-gray-400);
+    padding: 6px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .visual-element {
+    width: 100%;
+    height: 120px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .video-element {
+    background: linear-gradient(135deg, rgba(253, 117, 4, 0.1) 0%, rgba(255, 255, 255, 0.02) 100%);
+  }
+
+  .strategy-element {
+    background: linear-gradient(135deg, rgba(52, 254, 250, 0.1) 0%, rgba(255, 255, 255, 0.02) 100%);
+  }
+
+  .direction-element {
+    background: linear-gradient(135deg, rgba(249, 33, 120, 0.1) 0%, rgba(255, 255, 255, 0.02) 100%);
+  }
+
+  /* Work Section */
+  .section-work {
+    padding: var(--section-padding) 0;
+    background-color: var(--color-gray-900);
+  }
+
+  .work-header {
+    margin-bottom: 80px;
+  }
+
+  .work-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-bottom: 80px;
+  }
+
+  .work-item {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .work-item.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .work-visual {
+    position: relative;
+    aspect-ratio: 16/9;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 24px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .work-item:hover .work-visual {
+    transform: translateY(-4px);
+  }
+
+  .work-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+
+  .work-item:hover .work-overlay {
+    opacity: 1;
+  }
+
+  .play-button {
+    width: 60px;
+    height: 60px;
+    border: 2px solid var(--color-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .play-button::after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 12px solid var(--color-white);
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    margin-left: 3px;
+  }
+
+  .work-category {
+    font-family: var(--font-family-primary);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--color-gray-400);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+
+  .work-title {
+    font-family: var(--font-family-display);
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--color-white);
+    margin-bottom: 4px;
+  }
+
+  .work-client {
+    font-family: var(--font-family-primary);
+    font-size: 14px;
+    color: var(--color-gray-400);
+  }
+
+  .work-cta {
+    text-align: center;
+  }
+
+  /* Pricing Section */
+  .section-pricing {
+    padding: var(--section-padding) 0;
+    background-color: var(--color-black);
+  }
+
+  .pricing-header {
+    margin-bottom: 80px;
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+  }
+
+  .pricing-item {
+    position: relative;
+    padding: 48px 32px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .pricing-item.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .pricing-item.featured {
+    border-color: var(--color-white);
+    transform: scale(1.05);
+  }
+
+  .pricing-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 6px 16px;
+    background-color: var(--color-white);
+    color: var(--color-black);
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 20px;
+  }
+
+  .pricing-title {
+    font-family: var(--font-family-display);
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--color-white);
+    margin-bottom: 8px;
+  }
+
+  .pricing-price {
+    font-family: var(--font-family-display);
+    font-size: 48px;
+    font-weight: 800;
+    color: var(--color-white);
+    margin-bottom: 32px;
+  }
+
+  .pricing-features {
+    margin-bottom: 32px;
+  }
+
+  .feature-item {
+    font-family: var(--font-family-primary);
+    font-size: 16px;
+    color: var(--color-gray-400);
+    margin-bottom: 12px;
+    padding-left: 20px;
+    position: relative;
+  }
+
+  .feature-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    background-color: var(--color-white);
+    border-radius: 50%;
+  }
+
+  /* Contact Section */
+  .section-contact {
+    padding: var(--section-padding) 0;
+    background-color: var(--color-gray-900);
+  }
+
+  .contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 120px;
+    align-items: start;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .form-row {
+    display: flex;
+    gap: 24px;
+  }
+
+  .form-input {
+    flex: 1;
+    padding: 16px 0;
+    font-family: var(--font-family-primary);
+    font-size: 16px;
+    color: var(--color-white);
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    outline: none;
+    transition: all 0.3s ease;
+  }
+
+  .form-input::placeholder {
+    color: var(--color-gray-400);
+  }
+
+  .form-input:focus {
+    border-bottom-color: var(--color-white);
+  }
+
+  .form-textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .contact-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .contact-label {
+    font-family: var(--font-family-primary);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--color-gray-400);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .contact-value {
+    font-family: var(--font-family-primary);
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--color-white);
+  }
+
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+      gap: 60px;
+    }
+    
+    .service-item {
+      grid-template-columns: 40px 1fr;
+      gap: 24px;
+    }
+    
+    .service-visual {
+      grid-column: 1 / -1;
+      margin-top: 24px;
+    }
+    
+    .contact-content {
+      grid-template-columns: 1fr;
+      gap: 60px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    :root {
+      --section-padding: 80px;
+    }
+    
+    .work-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .pricing-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .form-row {
+      flex-direction: column;
+      gap: 16px;
+    }
+  }
+
+  /* Scroll Animations */
+  .scroll-trigger {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .scroll-trigger.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  // Cinematic scroll animations with Intersection Observer
+  document.addEventListener('DOMContentLoaded', () => {
+    // Enhanced intersection observer
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all animated elements
+    const animatedElements = document.querySelectorAll('.service-item, .work-item, .pricing-item, .scroll-trigger');
+    
+    animatedElements.forEach((el, index) => {
+      observer.observe(el);
+      
+      // Add staggered delays
+      const element = el as HTMLElement;
+      element.style.transitionDelay = `${index * 0.1}s`;
+    });
+
+    // Enhanced hover effects for work items
+    const workItems = document.querySelectorAll('.work-item');
+    workItems.forEach(item => {
+      item.addEventListener('mouseenter', () => {
+        item.classList.add('hovered');
+      });
+      
+      item.addEventListener('mouseleave', () => {
+        item.classList.remove('hovered');
+      });
+    });
+  });
+</script> 

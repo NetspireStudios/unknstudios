@@ -1,0 +1,286 @@
+---
+---
+
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-40 p-6 mix-blend-difference">
+  <div class="flex justify-between items-center">
+    <!-- Logo -->
+    <div class="logo">
+      <a href="/" class="text-2xl font-bold tracking-tight text-white hover:text-orange-primary transition-colors duration-300">
+        UNKN
+      </a>
+    </div>
+    
+    <!-- Burger Menu -->
+    <button id="burger-menu" class="burger-menu relative w-8 h-8 flex flex-col justify-center items-center group">
+      <span class="burger-line absolute w-6 h-0.5 bg-white transition-all duration-300 group-hover:bg-orange-primary" style="top: 12px;"></span>
+      <span class="burger-line absolute w-6 h-0.5 bg-white transition-all duration-300 group-hover:bg-orange-primary" style="top: 16px;"></span>
+      <span class="burger-line absolute w-6 h-0.5 bg-white transition-all duration-300 group-hover:bg-orange-primary" style="top: 20px;"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Navigation Menu Overlay -->
+<div id="nav-overlay" class="fixed inset-0 z-30 translate-x-full">
+  <!-- Lightbox background with low opacity -->
+  <div class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+  
+  <!-- Close button -->
+  <button id="close-menu" class="absolute top-6 right-6 text-white/70 hover:text-white transition-all duration-300 z-10 scale-100 hover:scale-110">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/>
+    </svg>
+  </button>
+  
+  <div class="h-full flex items-center relative">
+    <!-- Navigation menu positioned on the left -->
+    <div class="pl-12 md:pl-20">
+      <ul class="nav-menu space-y-8">
+        <li>
+          <a href="#home" class="nav-link block text-5xl md:text-6xl font-light tracking-wide text-white/90 hover:text-white transition-all duration-300 relative group">
+            <span class="nav-text">Home</span>
+            <div class="nav-underline"></div>
+          </a>
+        </li>
+        <li>
+          <a href="#services" class="nav-link block text-5xl md:text-6xl font-light tracking-wide text-white/90 hover:text-white transition-all duration-300 relative group">
+            <span class="nav-text">Services</span>
+            <div class="nav-underline"></div>
+          </a>
+        </li>
+        <li>
+          <a href="#work" class="nav-link block text-5xl md:text-6xl font-light tracking-wide text-white/90 hover:text-white transition-all duration-300 relative group">
+            <span class="nav-text">Work</span>
+            <div class="nav-underline"></div>
+          </a>
+        </li>
+        <li>
+          <a href="#pricing" class="nav-link block text-5xl md:text-6xl font-light tracking-wide text-white/90 hover:text-white transition-all duration-300 relative group">
+            <span class="nav-text">Pricing</span>
+            <div class="nav-underline"></div>
+          </a>
+        </li>
+        <li>
+          <a href="#contact" class="nav-link block text-5xl md:text-6xl font-light tracking-wide text-white/90 hover:text-white transition-all duration-300 relative group">
+            <span class="nav-text">Contact</span>
+            <div class="nav-underline"></div>
+          </a>
+        </li>
+      </ul>
+    </div>
+    
+    <!-- Minimal floating elements -->
+    <div class="absolute top-1/4 right-1/4 w-12 h-12 border border-white/5 rounded-full opacity-50 animate-pulse"></div>
+    <div class="absolute bottom-1/3 right-1/3 w-6 h-6 border border-orange-primary/10 rounded-full opacity-30"></div>
+  </div>
+</div>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const burgerMenu = document.getElementById('burger-menu');
+    const closeMenu = document.getElementById('close-menu');
+    const navOverlay = document.getElementById('nav-overlay');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const navTexts = document.querySelectorAll('.nav-text');
+    const burgerLines = document.querySelectorAll('.burger-line');
+    let isOpen = false;
+
+    function toggleMenu() {
+      if (isOpen) {
+        closeMenuFunction();
+      } else {
+        openMenu();
+      }
+    }
+
+    function openMenu() {
+      isOpen = true;
+      
+      // Animate burger to X
+      burgerLines[0].style.transform = 'rotate(45deg)';
+      burgerLines[0].style.top = '16px';
+      burgerLines[1].style.opacity = '0';
+      burgerLines[2].style.transform = 'rotate(-45deg)';
+      burgerLines[2].style.top = '16px';
+      
+      // Slide menu in from right
+      navOverlay.style.transform = 'translateX(0)';
+      navOverlay.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+      
+      // Animate menu items with stagger
+      navTexts.forEach((text, index) => {
+        setTimeout(() => {
+          text.style.transform = 'translateX(0) translateY(0)';
+          text.style.opacity = '1';
+        }, 400 + (index * 60));
+        
+        // Reset initial state
+        text.style.transform = 'translateX(-20px) translateY(5px)';
+        text.style.opacity = '0';
+        text.style.transition = 'all 0.5s ease-out';
+      });
+    }
+
+    function closeMenuFunction() {
+      isOpen = false;
+      
+      // First fade out text quickly
+      navTexts.forEach((text) => {
+        text.style.transform = 'translateX(-10px) translateY(5px)';
+        text.style.opacity = '0';
+        text.style.transition = 'all 0.2s ease-in';
+      });
+      
+      // Then slide menu out after text fades
+      setTimeout(() => {
+        navOverlay.style.transform = 'translateX(100%)';
+        navOverlay.style.transition = 'transform 0.4s ease-in';
+        
+                 // Animate X back to burger
+         burgerLines[0].style.transform = 'rotate(0deg)';
+         burgerLines[0].style.top = '12px';
+         burgerLines[1].style.opacity = '1';
+         burgerLines[2].style.transform = 'rotate(0deg)';
+         burgerLines[2].style.top = '20px';
+      }, 150);
+    }
+
+    function setupHoverEffects() {
+      navLinks.forEach((link, index) => {
+        const underline = link.querySelector('.nav-underline');
+        const colors = ['#FD7504', '#F92178', '#34FEFA', '#FD7504', '#F92178'];
+        const color = colors[index];
+
+        link.addEventListener('mouseenter', () => {
+          underline.style.width = '50%';
+          underline.style.backgroundColor = color;
+          underline.style.opacity = '0.8';
+          
+          // Add subtle floating animation
+          link.querySelector('.nav-text').style.transform = 'translateY(-2px)';
+        });
+
+        link.addEventListener('mouseleave', () => {
+          underline.style.width = '0%';
+          underline.style.opacity = '0.4';
+          
+          // Reset position
+          link.querySelector('.nav-text').style.transform = 'translateY(0)';
+        });
+
+        // Smooth scroll on click
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute('href').substring(1);
+          const targetElement = document.getElementById(targetId);
+          
+          closeMenuFunction();
+          
+          if (targetElement) {
+            setTimeout(() => {
+              targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+              });
+            }, 600);
+          }
+        });
+      });
+    }
+
+    // Event listeners
+    burgerMenu.addEventListener('click', toggleMenu);
+    closeMenu.addEventListener('click', closeMenuFunction);
+    
+    // Close menu when clicking outside
+    navOverlay.addEventListener('click', (e) => {
+      if (e.target === navOverlay) {
+        closeMenuFunction();
+      }
+    });
+
+    // Setup hover effects
+    setupHoverEffects();
+
+    // Navbar scroll behavior
+    let lastScrollY = window.scrollY;
+    
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      const currentScrollY = window.scrollY;
+      
+      if (currentScrollY > 100) {
+        navbar.style.backdropFilter = 'blur(10px)';
+        navbar.style.background = 'rgba(0, 0, 0, 0.8)';
+      } else {
+        navbar.style.backdropFilter = 'none';
+        navbar.style.background = 'transparent';
+      }
+      
+      // Hide/show navbar on scroll
+      if (currentScrollY > lastScrollY && currentScrollY > 200) {
+        navbar.style.transform = 'translateY(-100%)';
+      } else {
+        navbar.style.transform = 'translateY(0)';
+      }
+      
+      lastScrollY = currentScrollY;
+    });
+  });
+</script>
+
+<style>
+  #navbar {
+    transition: all 0.3s ease;
+  }
+
+  .nav-link {
+    position: relative;
+    display: inline-block;
+  }
+
+  .nav-text {
+    display: inline-block;
+    transition: all 0.3s ease-out;
+  }
+
+  .nav-underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.4);
+    transition: all 0.3s ease-out;
+    opacity: 0.4;
+  }
+
+  /* Burger menu animations */
+  .burger-line {
+    transform-origin: center;
+  }
+
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    .nav-link {
+      font-size: 3rem;
+    }
+    
+    #nav-overlay .pl-12 {
+      padding-left: 2rem;
+    }
+    
+    .nav-menu {
+      margin-top: -2rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .nav-link {
+      font-size: 2.25rem;
+    }
+    
+    #nav-overlay .pl-12 {
+      padding-left: 1.5rem;
+    }
+  }
+</style> 
