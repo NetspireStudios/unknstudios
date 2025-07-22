@@ -1,0 +1,271 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import AboutSection from '../components/About.astro';
+---
+
+<Layout title="About Us - UNKN Studio">
+  <!-- Empty Preloader (nothing shown) -->
+  <div id="page-preloader" class="fixed inset-0 bg-black z-50 flex items-center justify-center pointer-events-none">
+    <!-- Intentionally empty - no loading content -->
+  </div>
+  
+  <!-- Page Container with right-to-left animation -->
+  <div id="page-container" class="page-container">
+    <!-- Navigation -->
+    <Navbar />
+    
+    <!-- Main Content -->
+    <main id="main-content" class="main-content">
+      <!-- About Section -->
+      <AboutSection />
+      
+      <!-- Contact CTA Section -->
+      <section id="contact-cta" class="section-contact-cta relative">
+        <div class="container-large">
+          <div class="cta-content">
+            <div class="cta-header">
+              <h2 class="section-title">
+                Ready to
+                <span class="title-accent title-glow-pink" style="color: #F92178;">Collaborate?</span>
+              </h2>
+              <p class="section-description">
+                Let's create something extraordinary together. Get in touch and let's discuss your next project.
+              </p>
+            </div>
+            
+            <div class="cta-actions">
+              <a href="/#contact" class="btn-primary interactive">Start a Project</a>
+              <a href="/#work" class="btn-secondary interactive">View Our Work</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</Layout>
+
+<style>
+  /* Page transition styles */
+  .page-container {
+    transform: translateX(100%);
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    min-height: 100vh;
+    overflow-y: auto;
+  }
+
+  .page-container.loaded {
+    transform: translateX(0);
+  }
+
+  .main-content {
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+    transition-delay: 0.4s;
+  }
+
+  .main-content.visible {
+    opacity: 1;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 32px;
+    font-family: var(--font-family-primary);
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--color-black);
+    background-color: var(--color-white);
+    border: none;
+    border-radius: 0;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: none;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-gray-100);
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 32px;
+    font-family: var(--font-family-primary);
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--color-white);
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 0;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: none;
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--color-white);
+    color: var(--color-black);
+    border-color: var(--color-white);
+  }
+
+  /* CSS Variables */
+  :root {
+    --color-orange: #FD7504;
+    --color-blue: #34FEFA;
+    --color-pink: #F92178;
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-gray-50: #f8f9fa;
+    --color-gray-100: #e9ecef;
+    --color-gray-400: #6c757d;
+    --color-gray-900: #1a1a1a;
+    
+    --font-family-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-family-display: 'Inter', sans-serif;
+  }
+
+  /* Typography */
+  .section-title {
+    font-family: var(--font-family-display);
+    font-size: clamp(48px, 8vw, 120px);
+    font-weight: 800;
+    line-height: 0.9;
+    color: var(--color-white);
+    margin-bottom: 32px;
+    letter-spacing: -0.02em;
+  }
+
+  .title-accent {
+    font-weight: 300;
+    font-style: italic;
+    color: var(--color-gray-400);
+  }
+
+  .section-description {
+    font-family: var(--font-family-primary);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--color-gray-400);
+    max-width: 640px;
+  }
+
+  .container-large {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* Contact CTA Section */
+  .section-contact-cta {
+    padding: 160px 0;
+    background-color: var(--color-gray-900);
+  }
+
+  .cta-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .cta-header {
+    margin-bottom: 48px;
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  /* Mobile responsive */
+  @media (max-width: 768px) {
+    .cta-actions {
+      flex-direction: column;
+      gap: 16px;
+    }
+    
+    .cta-actions .btn-primary,
+    .cta-actions .btn-secondary {
+      width: 100%;
+      max-width: 280px;
+    }
+  }
+
+  /* Brand Color Glow Effects */
+  .title-glow-orange {
+    text-shadow: 0 0 15px rgba(253, 117, 4, 0.4), 0 0 30px rgba(253, 117, 4, 0.2);
+    transition: text-shadow 0.3s ease;
+  }
+
+  .title-glow-orange:hover {
+    text-shadow: 0 0 25px rgba(253, 117, 4, 0.6), 0 0 50px rgba(253, 117, 4, 0.3);
+  }
+
+  .title-glow-blue {
+    text-shadow: 0 0 15px rgba(52, 254, 250, 0.4), 0 0 30px rgba(52, 254, 250, 0.2);
+    transition: text-shadow 0.3s ease;
+  }
+
+  .title-glow-blue:hover {
+    text-shadow: 0 0 25px rgba(52, 254, 250, 0.6), 0 0 50px rgba(52, 254, 250, 0.3);
+  }
+
+  .title-glow-pink {
+    text-shadow: 0 0 15px rgba(249, 33, 120, 0.4), 0 0 30px rgba(249, 33, 120, 0.2);
+    transition: text-shadow 0.3s ease;
+  }
+
+  .title-glow-pink:hover {
+    text-shadow: 0 0 25px rgba(249, 33, 120, 0.6), 0 0 50px rgba(249, 33, 120, 0.3);
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const preloader = document.getElementById('page-preloader');
+    const pageContainer = document.getElementById('page-container');
+    const mainContent = document.getElementById('main-content');
+    
+    // Hide preloader and start page transition
+    setTimeout(() => {
+      if (preloader) {
+        preloader.style.opacity = '0';
+        setTimeout(() => {
+          preloader.style.display = 'none';
+        }, 300);
+      }
+      
+      // Start right-to-left pan animation
+      if (pageContainer) {
+        pageContainer.classList.add('loaded');
+      }
+      
+      // Show main content after pan completes
+      setTimeout(() => {
+        if (mainContent) {
+          mainContent.classList.add('visible');
+        }
+      }, 400);
+    }, 500); // Short delay for empty preloader
+    
+    // Enhanced smooth scroll for anchor links
+    document.querySelectorAll('a[href^="/#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        // Navigate to home page with hash
+        const targetId = this.getAttribute('href').substring(2);
+        window.location.href = `/${this.getAttribute('href')}`;
+      });
+    });
+  });
+</script> 

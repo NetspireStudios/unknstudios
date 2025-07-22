@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Preloader from '../components/Preloader.astro';
 import Navbar from '../components/Navbar.astro';
 import Hero from '../components/Hero.astro';
+import VSL from '../components/VSL.astro';
 ---
 
 <Layout title="UNKN Studio - Cinematic Content Creation">
@@ -17,6 +18,9 @@ import Hero from '../components/Hero.astro';
     <!-- Hero Section -->
     <Hero />
     
+    <!-- VSL Section -->
+    <VSL />
+    
     <!-- Services Section -->
     <section id="services" class="section-services relative">
       <div class="section-bg">
@@ -27,10 +31,10 @@ import Hero from '../components/Hero.astro';
         <div class="services-grid">
           <!-- Section Header -->
           <div class="services-header">
-            <div class="section-number">01</div>
+            <div class="section-number number-glow-orange">01</div>
             <h2 class="section-title">
               What We
-              <span class="title-accent">Create</span>
+              <span class="title-accent title-glow-orange" style="color: #FD7504;">Create</span>
             </h2>
             <p class="section-description">
               We craft cinematic content that elevates brands and captivates audiences through strategic storytelling and visual excellence.
@@ -108,10 +112,10 @@ import Hero from '../components/Hero.astro';
       
       <div class="container-large">
         <div class="work-header">
-          <div class="section-number">02</div>
+                      <div class="section-number number-glow-blue">02</div>
           <h2 class="section-title">
             Selected
-            <span class="title-accent">Work</span>
+                          <span class="title-accent title-glow-blue" style="color: #34FEFA;">Work</span>
           </h2>
         </div>
         
@@ -187,10 +191,10 @@ import Hero from '../components/Hero.astro';
       
       <div class="container-large">
         <div class="pricing-header">
-          <div class="section-number">03</div>
+                      <div class="section-number number-glow-pink">03</div>
           <h2 class="section-title">
             Investment
-            <span class="title-accent">Plans</span>
+                          <span class="title-accent title-glow-pink" style="color: #F92178;">Plans</span>
           </h2>
           <p class="section-description">
             Transparent pricing for professional creative services tailored to your specific needs and ambitions.
@@ -249,10 +253,10 @@ import Hero from '../components/Hero.astro';
       <div class="container-large">
         <div class="contact-content">
           <div class="contact-header">
-            <div class="section-number">04</div>
+            <div class="section-number number-glow-orange">04</div>
             <h2 class="section-title">
               Let's
-              <span class="title-accent">Create</span>
+              <span class="title-accent title-glow-orange" style="color: #FD7504;">Create</span>
             </h2>
             <p class="section-description">
               Ready to elevate your brand with cinematic content? Let's discuss your vision and bring it to life.
@@ -880,6 +884,63 @@ import Hero from '../components/Hero.astro';
     opacity: 1;
     transform: translateY(0);
   }
+
+  /* Brand Color Glow Effects */
+  .title-glow-orange {
+    text-shadow: 0 0 15px rgba(253, 117, 4, 0.4), 0 0 30px rgba(253, 117, 4, 0.2);
+    transition: text-shadow 0.3s ease;
+  }
+
+  .title-glow-orange:hover {
+    text-shadow: 0 0 25px rgba(253, 117, 4, 0.6), 0 0 50px rgba(253, 117, 4, 0.3);
+  }
+
+  .title-glow-blue {
+    text-shadow: 0 0 15px rgba(52, 254, 250, 0.4), 0 0 30px rgba(52, 254, 250, 0.2);
+    transition: text-shadow 0.3s ease;
+  }
+
+  .title-glow-blue:hover {
+    text-shadow: 0 0 25px rgba(52, 254, 250, 0.6), 0 0 50px rgba(52, 254, 250, 0.3);
+  }
+
+  .title-glow-pink {
+    text-shadow: 0 0 15px rgba(249, 33, 120, 0.4), 0 0 30px rgba(249, 33, 120, 0.2);
+    transition: text-shadow 0.3s ease;
+  }
+
+  .title-glow-pink:hover {
+    text-shadow: 0 0 25px rgba(249, 33, 120, 0.6), 0 0 50px rgba(249, 33, 120, 0.3);
+  }
+
+  .number-glow-orange {
+    text-shadow: 0 0 10px rgba(253, 117, 4, 0.5), 0 0 20px rgba(253, 117, 4, 0.3);
+    transition: text-shadow 0.3s ease;
+  }
+
+  .number-glow-orange:hover {
+    text-shadow: 0 0 20px rgba(253, 117, 4, 0.7), 0 0 40px rgba(253, 117, 4, 0.4);
+  }
+
+  .number-glow-blue {
+    text-shadow: 0 0 10px rgba(52, 254, 250, 0.5), 0 0 20px rgba(52, 254, 250, 0.3);
+    transition: text-shadow 0.3s ease;
+  }
+
+  .number-glow-blue:hover {
+    text-shadow: 0 0 20px rgba(52, 254, 250, 0.7), 0 0 40px rgba(52, 254, 250, 0.4);
+  }
+
+  .number-glow-pink {
+    text-shadow: 0 0 10px rgba(249, 33, 120, 0.5), 0 0 20px rgba(249, 33, 120, 0.3);
+    transition: text-shadow 0.3s ease;
+  }
+
+  .number-glow-pink:hover {
+    text-shadow: 0 0 20px rgba(249, 33, 120, 0.7), 0 0 40px rgba(249, 33, 120, 0.4);
+  }
+
+
 </style>
 
 <script>

@@ -59,6 +59,18 @@
             <div class="nav-underline"></div>
           </a>
         </li>
+                            <li>
+                      <a href="/about" class="nav-link block text-5xl md:text-6xl font-light tracking-wide text-white/90 hover:text-white transition-all duration-300 relative group">
+                        <span class="nav-text">About</span>
+                        <div class="nav-underline"></div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#vsl" class="nav-link block text-5xl md:text-6xl font-light tracking-wide text-white/90 hover:text-white transition-all duration-300 relative group">
+                        <span class="nav-text">VSL</span>
+                        <div class="nav-underline"></div>
+                      </a>
+                    </li>
         <li>
           <a href="#contact" class="nav-link block text-5xl md:text-6xl font-light tracking-wide text-white/90 hover:text-white transition-all duration-300 relative group">
             <span class="nav-text">Contact</span>
@@ -283,4 +295,150 @@
       padding-left: 1.5rem;
     }
   }
-</style> 
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Smooth page transition for About link
+    const aboutLink = document.querySelector('a[href="/about"]');
+    
+    if (aboutLink) {
+      aboutLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        // Create transition overlay
+        const transitionOverlay = document.createElement('div');
+        transitionOverlay.style.cssText = `
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: black;
+          z-index: 9999;
+          opacity: 0;
+          transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+          pointer-events: none;
+        `;
+        
+        document.body.appendChild(transitionOverlay);
+        
+        // Close mobile menu if open
+        const navOverlay = document.getElementById('nav-overlay');
+        const burgerMenu = document.getElementById('burger-menu');
+        
+                 if (navOverlay && navOverlay.classList.contains('active')) {
+           // Close menu with animation
+           const navLinks = navOverlay.querySelectorAll('.nav-link');
+           navLinks.forEach((link, index) => {
+             setTimeout(() => {
+               const htmlLink = link as HTMLElement;
+               htmlLink.style.opacity = '0';
+               htmlLink.style.transform = 'translateY(-20px)';
+             }, index * 50);
+           });
+           
+           setTimeout(() => {
+             navOverlay.classList.remove('active');
+             if (burgerMenu) {
+               burgerMenu.classList.remove('active');
+             }
+           }, navLinks.length * 50 + 200);
+         }
+        
+        // Start transition
+        setTimeout(() => {
+          transitionOverlay.style.opacity = '1';
+          
+          // Navigate after transition completes
+          setTimeout(() => {
+            window.location.href = '/about';
+          }, 600);
+        }, 100);
+      });
+    }
+
+    // Enhanced burger menu functionality
+    const burgerMenu = document.getElementById('burger-menu');
+    const navOverlay = document.getElementById('nav-overlay');
+    const closeBtn = document.getElementById('close-menu');
+
+    if (burgerMenu && navOverlay) {
+      burgerMenu.addEventListener('click', () => {
+        navOverlay.classList.add('active');
+        burgerMenu.classList.add('active');
+        
+                 // Animate menu items
+         const navLinks = navOverlay.querySelectorAll('.nav-link');
+         navLinks.forEach((link, index) => {
+           const htmlLink = link as HTMLElement;
+           htmlLink.style.opacity = '0';
+           htmlLink.style.transform = 'translateY(20px)';
+           
+           setTimeout(() => {
+             htmlLink.style.opacity = '1';
+             htmlLink.style.transform = 'translateY(0)';
+           }, 100 + (index * 100));
+         });
+      });
+    }
+
+    if (closeBtn && navOverlay) {
+             closeBtn.addEventListener('click', () => {
+         const navLinks = navOverlay.querySelectorAll('.nav-link');
+         
+         // Animate out
+         navLinks.forEach((link, index) => {
+           setTimeout(() => {
+             const htmlLink = link as HTMLElement;
+             htmlLink.style.opacity = '0';
+             htmlLink.style.transform = 'translateY(-20px)';
+           }, index * 50);
+         });
+         
+         setTimeout(() => {
+           navOverlay.classList.remove('active');
+           if (burgerMenu) {
+             burgerMenu.classList.remove('active');
+           }
+         }, navLinks.length * 50 + 200);
+       });
+    }
+
+    // Smooth scrolling for anchor links (home page sections)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+                 // Close mobile menu if open
+         if (navOverlay && navOverlay.classList.contains('active')) {
+           const navLinks = navOverlay.querySelectorAll('.nav-link');
+           navLinks.forEach((link, index) => {
+             setTimeout(() => {
+               const htmlLink = link as HTMLElement;
+               htmlLink.style.opacity = '0';
+               htmlLink.style.transform = 'translateY(-20px)';
+             }, index * 50);
+           });
+           
+           setTimeout(() => {
+             navOverlay.classList.remove('active');
+             if (burgerMenu) {
+               burgerMenu.classList.remove('active');
+             }
+           }, navLinks.length * 50 + 200);
+         }
+        
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+        
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  });
+</script> 

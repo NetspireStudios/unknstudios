@@ -22,6 +22,15 @@ const { title } = Astro.props;
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
   </head>
   <body class="bg-black text-white overflow-x-hidden antialiased">
+    <!-- Animated Background Elements -->
+    <div class="floating-orbs">
+      <div class="orb"></div>
+      <div class="orb"></div>
+      <div class="orb"></div>
+      <div class="orb"></div>
+    </div>
+    <div class="shimmer"></div>
+    
     <!-- Custom Cursor -->
     <div id="cursor" class="cursor"></div>
     <div id="cursor-dot" class="cursor-dot"></div>
@@ -50,38 +59,316 @@ const { title } = Astro.props;
     padding: 0;
     overflow-x: hidden;
     cursor: none;
+    position: relative;
   }
 
-  /* Custom Cursor Styles */
-  .cursor {
+  /* Animated Background */
+  body::before {
+    content: '';
     position: fixed;
-    width: 40px;
-    height: 40px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    mix-blend-mode: difference;
-    transition: transform 0.15s ease-out, border-color 0.15s ease-out;
-    transform: translate(-50%, -50%);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -2;
+    background: 
+      radial-gradient(circle at 20% 80%, rgba(253, 117, 4, 0.4) 0%, transparent 70%),
+      radial-gradient(circle at 80% 20%, rgba(52, 254, 250, 0.4) 0%, transparent 70%),
+      radial-gradient(circle at 40% 40%, rgba(249, 33, 120, 0.3) 0%, transparent 70%),
+      linear-gradient(135deg, #000000 0%, #1a0505 25%, #000000 50%, #051a1a 75%, #000000 100%);
+    background-size: 200% 200%, 200% 200%, 200% 200%, 600% 600%;
+    animation: dramaticGradientShift 8s ease-in-out infinite;
   }
 
-  .cursor-dot {
+  /* Prominent Grid Pattern */
+  body::after {
+    content: '';
     position: fixed;
-    width: 4px;
-    height: 4px;
-    background: white;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 10000;
-    transition: transform 0.05s ease-out;
-    transform: translate(-50%, -50%);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background-image: 
+      linear-gradient(rgba(253, 117, 4, 0.15) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(52, 254, 250, 0.15) 1px, transparent 1px),
+      linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-size: 60px 60px, 60px 60px, 20px 20px, 20px 20px;
+    background-position: 0 0, 0 0, 0 0, 0 0;
+    animation: gridMove 12s linear infinite;
   }
 
-  .cursor.hover {
-    transform: translate(-50%, -50%) scale(1.5);
-    border-color: white;
+  @keyframes dramaticGradientShift {
+    0%, 100% {
+      background-position: 0% 0%, 100% 100%, 50% 50%, 0% 0%;
+      filter: hue-rotate(0deg) brightness(1) saturate(1);
+    }
+    12.5% {
+      background-position: 25% 0%, 75% 100%, 40% 60%, 25% 0%;
+      filter: hue-rotate(20deg) brightness(1.1) saturate(1.2);
+    }
+    25% {
+      background-position: 100% 0%, 0% 100%, 25% 75%, 100% 0%;
+      filter: hue-rotate(45deg) brightness(1.2) saturate(1.4);
+    }
+    37.5% {
+      background-position: 100% 50%, 0% 50%, 60% 40%, 100% 50%;
+      filter: hue-rotate(70deg) brightness(1.15) saturate(1.3);
+    }
+    50% {
+      background-position: 100% 100%, 0% 0%, 75% 25%, 100% 100%;
+      filter: hue-rotate(90deg) brightness(1.3) saturate(1.5);
+    }
+    62.5% {
+      background-position: 50% 100%, 50% 0%, 80% 20%, 50% 100%;
+      filter: hue-rotate(110deg) brightness(1.25) saturate(1.4);
+    }
+    75% {
+      background-position: 0% 100%, 100% 0%, 50% 50%, 0% 100%;
+      filter: hue-rotate(135deg) brightness(1.4) saturate(1.6);
+    }
+    87.5% {
+      background-position: 0% 50%, 100% 50%, 30% 70%, 0% 50%;
+      filter: hue-rotate(160deg) brightness(1.2) saturate(1.3);
+    }
   }
+
+  @keyframes gridMove {
+    0% {
+      background-position: 0 0, 0 0, 0 0, 0 0;
+      transform: scale(1) rotate(0deg);
+      opacity: 1;
+    }
+    14% {
+      background-position: 15px 15px, -15px 15px, 5px 5px, -5px 5px;
+      transform: scale(1.02) rotate(0.5deg);
+      opacity: 0.9;
+    }
+    28% {
+      background-position: 30px 30px, -30px 30px, 10px 10px, -10px 10px;
+      transform: scale(1.05) rotate(1deg);
+      opacity: 0.8;
+    }
+    42% {
+      background-position: 45px 15px, -15px 45px, 15px 5px, -5px 15px;
+      transform: scale(1.03) rotate(0.5deg);
+      opacity: 0.85;
+    }
+    56% {
+      background-position: 60px 0, 0 60px, 20px 0, 0 20px;
+      transform: scale(1) rotate(0deg);
+      opacity: 1;
+    }
+    70% {
+      background-position: 45px -15px, 15px 45px, 15px -5px, 5px 15px;
+      transform: scale(1.01) rotate(-0.5deg);
+      opacity: 0.9;
+    }
+    84% {
+      background-position: 30px -30px, 30px 30px, 10px -10px, 10px 10px;
+      transform: scale(1.02) rotate(-1deg);
+      opacity: 0.8;
+    }
+    100% {
+      background-position: 0 0, 0 0, 0 0, 0 0;
+      transform: scale(1) rotate(0deg);
+      opacity: 1;
+    }
+  }
+
+  /* Enhanced Floating Orbs */
+  .floating-orbs {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(30px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    animation: smoothFloat 25s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    filter: blur(1px);
+  }
+
+  .orb::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: inherit;
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: innerGlow 8s ease-in-out infinite;
+  }
+
+  .orb:nth-child(1) {
+    width: 400px;
+    height: 400px;
+    top: 5%;
+    left: 5%;
+    animation-delay: 0s;
+    background: radial-gradient(circle at 30% 30%, rgba(253, 117, 4, 0.6), rgba(253, 117, 4, 0.2), transparent);
+    box-shadow: 0 0 100px rgba(253, 117, 4, 0.3);
+  }
+
+  .orb:nth-child(2) {
+    width: 350px;
+    height: 350px;
+    top: 50%;
+    right: 10%;
+    animation-delay: -3s;
+    background: radial-gradient(circle at 30% 30%, rgba(52, 254, 250, 0.6), rgba(52, 254, 250, 0.2), transparent);
+    box-shadow: 0 0 100px rgba(52, 254, 250, 0.3);
+  }
+
+  .orb:nth-child(3) {
+    width: 300px;
+    height: 300px;
+    bottom: 10%;
+    left: 15%;
+    animation-delay: -6s;
+    background: radial-gradient(circle at 30% 30%, rgba(249, 33, 120, 0.6), rgba(249, 33, 120, 0.2), transparent);
+    box-shadow: 0 0 100px rgba(249, 33, 120, 0.3);
+  }
+
+  .orb:nth-child(4) {
+    width: 250px;
+    height: 250px;
+    top: 25%;
+    right: 40%;
+    animation-delay: -9s;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.1), transparent);
+    box-shadow: 0 0 80px rgba(255, 255, 255, 0.2);
+  }
+
+  @keyframes smoothFloat {
+    0%, 100% {
+      transform: translate(0, 0) rotate(0deg) scale(1);
+      opacity: 0.7;
+      filter: blur(1px) brightness(1);
+    }
+    16% {
+      transform: translate(40px, -30px) rotate(60deg) scale(1.1);
+      opacity: 0.8;
+      filter: blur(0.5px) brightness(1.2);
+    }
+    33% {
+      transform: translate(80px, -60px) rotate(120deg) scale(1.3);
+      opacity: 0.9;
+      filter: blur(0px) brightness(1.4);
+    }
+    50% {
+      transform: translate(60px, 20px) rotate(180deg) scale(0.9);
+      opacity: 0.6;
+      filter: blur(1px) brightness(1.1);
+    }
+    66% {
+      transform: translate(-40px, 40px) rotate(240deg) scale(0.7);
+      opacity: 0.4;
+      filter: blur(1.5px) brightness(0.9);
+    }
+    83% {
+      transform: translate(-80px, -20px) rotate(300deg) scale(1.1);
+      opacity: 0.8;
+      filter: blur(0.5px) brightness(1.3);
+    }
+  }
+
+  @keyframes innerGlow {
+    0%, 100% {
+      opacity: 0.1;
+      transform: scale(0.8);
+    }
+    50% {
+      opacity: 0.5;
+      transform: scale(1.2);
+    }
+  }
+
+  /* Dramatic Shimmer Effect */
+  .shimmer {
+    position: fixed;
+    top: 0;
+    left: -150%;
+    width: 150%;
+    height: 100%;
+    background: linear-gradient(
+      45deg,
+      transparent,
+      rgba(253, 117, 4, 0.3),
+      rgba(52, 254, 250, 0.3),
+      rgba(249, 33, 120, 0.3),
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    z-index: -1;
+    animation: dramaticShimmer 6s ease-in-out infinite;
+    transform: skew(-20deg);
+  }
+
+  @keyframes dramaticShimmer {
+    0% {
+      left: -150%;
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      left: 150%;
+      opacity: 0;
+    }
+  }
+
+                /* Optimized Custom Cursor Styles */
+              .cursor {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 40px;
+                height: 40px;
+                border: 1px solid rgba(255, 255, 255, 0.3);
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 9999;
+                mix-blend-mode: difference;
+                will-change: transform;
+                transform: translate(-20px, -20px);
+                transition: border-color 0.15s ease-out;
+              }
+
+              .cursor-dot {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 4px;
+                height: 4px;
+                background: white;
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 10000;
+                will-change: transform;
+                transform: translate(-2px, -2px);
+              }
+
+                .cursor.hover {
+                transform: translate(-20px, -20px) scale(1.5);
+                border-color: white;
+              }
 
   /* Hide cursor on touch devices */
   @media (hover: none) {
@@ -131,42 +418,57 @@ const { title } = Astro.props;
   }
 </style>
 
-<script is:inline>
-  // Custom cursor functionality
-  document.addEventListener('DOMContentLoaded', () => {
-    const cursor = document.getElementById('cursor');
-    const cursorDot = document.getElementById('cursor-dot');
-    
-    if (!cursor || !cursorDot) return;
-    
-    let mouseX = 0;
-    let mouseY = 0;
-    let cursorX = 0;
-    let cursorY = 0;
-    
-    // Update mouse position
-    document.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-    });
-    
-    // Smooth cursor follow
-    function updateCursor() {
-      const speed = 0.1;
-      cursorX += (mouseX - cursorX) * speed;
-      cursorY += (mouseY - cursorY) * speed;
-      
-      cursor.style.left = cursorX + 'px';
-      cursor.style.top = cursorY + 'px';
-      
-      // Dot follows immediately
-      cursorDot.style.left = mouseX + 'px';
-      cursorDot.style.top = mouseY + 'px';
-      
-      requestAnimationFrame(updateCursor);
-    }
-    
-    updateCursor();
+            <script is:inline>
+              // Optimized Custom cursor functionality
+              document.addEventListener('DOMContentLoaded', () => {
+                const cursor = document.getElementById('cursor');
+                const cursorDot = document.getElementById('cursor-dot');
+                
+                if (!cursor || !cursorDot) return;
+                
+                let mouseX = 0;
+                let mouseY = 0;
+                let cursorX = 0;
+                let cursorY = 0;
+                let isAnimating = false;
+                
+                // Update mouse position with throttling
+                document.addEventListener('mousemove', (e) => {
+                  mouseX = e.clientX;
+                  mouseY = e.clientY;
+                  
+                  // Dot follows immediately with transform for better performance
+                  cursorDot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+                  
+                  if (!isAnimating) {
+                    isAnimating = true;
+                    requestAnimationFrame(updateCursor);
+                  }
+                });
+                
+                // Optimized smooth cursor follow
+                function updateCursor() {
+                  const speed = 0.15; // Slightly faster for less lag
+                  const diffX = mouseX - cursorX;
+                  const diffY = mouseY - cursorY;
+                  
+                  // Only update if there's significant movement
+                  if (Math.abs(diffX) > 0.1 || Math.abs(diffY) > 0.1) {
+                    cursorX += diffX * speed;
+                    cursorY += diffY * speed;
+                    
+                    // Use transform instead of left/top for better performance
+                    cursor.style.transform = `translate(${cursorX}px, ${cursorY}px)`;
+                    
+                    requestAnimationFrame(updateCursor);
+                  } else {
+                    isAnimating = false;
+                  }
+                }
+                
+                // Initialize cursor position
+                cursor.style.transform = 'translate(0px, 0px)';
+                cursorDot.style.transform = 'translate(0px, 0px)';
     
     // Add hover effects for interactive elements
     function updateInteractiveElements() {

@@ -1,0 +1,779 @@
+---
+---
+
+<section id="vsl" class="vsl-section relative overflow-hidden">
+  <!-- Animated Background Elements -->
+  <div class="vsl-bg-elements">
+    <div class="vsl-orb vsl-orb-1"></div>
+    <div class="vsl-orb vsl-orb-2"></div>
+    <div class="vsl-orb vsl-orb-3"></div>
+    <div class="vsl-grid"></div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="vsl-container">
+    <!-- Headline Section with Glow -->
+    <div class="vsl-header">
+      <div class="vsl-badge">
+        <span class="badge-text">VIDEO SALES LETTER</span>
+        <div class="badge-glow"></div>
+      </div>
+      
+      <h2 class="vsl-headline">
+        We Will Build a Done-For-You Content Creation System for Your Brand That 
+        <span class="headline-accent glow-orange">Attracts Leads</span> & 
+        <span class="headline-accent-secondary glow-blue">Signs New Clients</span>
+      </h2>
+      
+      <p class="vsl-subheadline">
+        Get high-quality, consistent content without spending hours creating videos.<br>
+        <span class="subheadline-accent">Grow your audience and close more deals with cinematic storytelling.</span>
+      </p>
+    </div>
+
+    <!-- Enhanced Video Player Section -->
+    <div class="vsl-video-container">
+      <div class="video-glow-wrapper">
+        <div class="video-player">
+          <div class="video-background-pattern"></div>
+          <div class="video-placeholder">
+            <div class="play-button-container">
+              <div class="play-button">
+                <div class="play-icon">
+                  <svg width="60" height="60" viewBox="0 0 24 24" fill="none">
+                    <polygon points="8,5 19,12 8,19" fill="currentColor"/>
+                  </svg>
+                </div>
+                <div class="play-ripple"></div>
+                <div class="play-ripple ripple-2"></div>
+              </div>
+            </div>
+            
+            <!-- Video Info Overlay -->
+            <div class="video-info">
+              <div class="video-duration">
+                <div class="duration-icon">●</div>
+                <span>12:45</span>
+              </div>
+              <div class="video-quality">HD</div>
+            </div>
+            
+            <!-- Video Title Overlay -->
+            <div class="video-title-overlay">
+              <h3 class="video-title">How We Transform Brands Through Cinematic Content</h3>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Multiple Glow Layers -->
+        <div class="video-glow glow-layer-1"></div>
+        <div class="video-glow glow-layer-2"></div>
+        <div class="video-glow glow-layer-3"></div>
+      </div>
+    </div>
+
+    <!-- Enhanced CTA Section -->
+    <div class="vsl-cta-section">
+      <div class="cta-buttons">
+        <button class="cta-primary interactive">
+          <span class="cta-text">Book a Call</span>
+          <div class="cta-arrow">→</div>
+          <div class="cta-bg-glow"></div>
+        </button>
+        
+        <button class="cta-secondary interactive">
+          <span class="cta-text">See Our Work</span>
+          <div class="cta-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="8.5" cy="8.5" r="1.5" fill="currentColor"/>
+              <polyline points="21,15 16,10 5,21" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <div class="cta-secondary-glow"></div>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Enhanced scroll-triggered animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const vslObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const section = entry.target;
+          section.classList.add('vsl-animate');
+          
+          // Staggered animations
+          setTimeout(() => {
+            const badge = section.querySelector('.vsl-badge');
+            if (badge) badge.classList.add('animate-in');
+          }, 200);
+          
+          setTimeout(() => {
+            const headline = section.querySelector('.vsl-headline');
+            if (headline) headline.classList.add('animate-in');
+          }, 400);
+          
+          setTimeout(() => {
+            const subheadline = section.querySelector('.vsl-subheadline');
+            if (subheadline) subheadline.classList.add('animate-in');
+          }, 600);
+          
+          setTimeout(() => {
+            const videoContainer = section.querySelector('.vsl-video-container');
+            if (videoContainer) videoContainer.classList.add('animate-in');
+          }, 800);
+          
+          setTimeout(() => {
+            const ctaSection = section.querySelector('.vsl-cta-section');
+            if (ctaSection) ctaSection.classList.add('animate-in');
+          }, 1000);
+        }
+      });
+    }, observerOptions);
+
+    const vslSection = document.getElementById('vsl');
+    if (vslSection) {
+      vslObserver.observe(vslSection);
+    }
+
+    // Enhanced CTA interactions
+    const ctaPrimary = document.querySelector('.cta-primary');
+    const ctaSecondary = document.querySelector('.cta-secondary');
+
+    if (ctaPrimary) {
+      ctaPrimary.addEventListener('click', () => {
+        document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+      });
+    }
+
+    if (ctaSecondary) {
+      ctaSecondary.addEventListener('click', () => {
+        document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' });
+      });
+    }
+
+    // Video play interaction with animation
+    const playButton = document.querySelector('.play-button-container');
+    if (playButton) {
+      playButton.addEventListener('click', () => {
+        playButton.classList.add('clicked');
+        console.log('Play video clicked');
+        
+        // Reset animation
+        setTimeout(() => {
+          playButton.classList.remove('clicked');
+        }, 300);
+      });
+    }
+  });
+</script>
+
+<style>
+  .vsl-section {
+    min-height: 100vh;
+    background: 
+      radial-gradient(circle at 20% 20%, rgba(253, 117, 4, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(52, 254, 250, 0.1) 0%, transparent 50%),
+      linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #000000 100%);
+    color: white;
+    padding: 120px 0;
+    position: relative;
+  }
+
+  /* Animated Background Elements */
+  .vsl-bg-elements {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .vsl-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.6;
+    animation: vslOrbFloat 20s ease-in-out infinite;
+  }
+
+  .vsl-orb-1 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(253, 117, 4, 0.4), transparent);
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+  }
+
+  .vsl-orb-2 {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(52, 254, 250, 0.3), transparent);
+    bottom: 20%;
+    right: 20%;
+    animation-delay: -10s;
+  }
+
+  .vsl-orb-3 {
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(249, 33, 120, 0.25), transparent);
+    top: 60%;
+    left: 70%;
+    animation-delay: -5s;
+  }
+
+  @keyframes vslOrbFloat {
+    0%, 100% {
+      transform: translate(0, 0) scale(1);
+      opacity: 0.6;
+    }
+    50% {
+      transform: translate(-30px, -50px) scale(1.1);
+      opacity: 0.8;
+    }
+  }
+
+  .vsl-grid {
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    animation: vslGridMove 30s linear infinite;
+  }
+
+  @keyframes vslGridMove {
+    0% { background-position: 0 0; }
+    100% { background-position: 60px 60px; }
+  }
+
+  .vsl-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    position: relative;
+    z-index: 10;
+  }
+
+  /* Header Section with Enhanced Styling */
+  .vsl-header {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .vsl-badge {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 40px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .vsl-badge.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .badge-text {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 2;
+  }
+
+  .badge-glow {
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, #FD7504, #34FEFA, #F92178, #FD7504);
+    border-radius: 50px;
+    z-index: -1;
+    opacity: 0;
+    filter: blur(8px);
+    animation: badgeGlow 3s ease-in-out infinite;
+  }
+
+  @keyframes badgeGlow {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 0.6; }
+  }
+
+  .vsl-headline {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 32px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
+    letter-spacing: -0.02em;
+  }
+
+  .vsl-headline.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .headline-accent {
+    position: relative;
+    font-weight: 800;
+  }
+
+  .glow-orange {
+    color: #FD7504;
+    text-shadow: 
+      0 0 20px rgba(253, 117, 4, 0.5),
+      0 0 40px rgba(253, 117, 4, 0.3),
+      0 0 60px rgba(253, 117, 4, 0.1);
+  }
+
+  .glow-blue {
+    color: #34FEFA;
+    text-shadow: 
+      0 0 20px rgba(52, 254, 250, 0.5),
+      0 0 40px rgba(52, 254, 250, 0.3),
+      0 0 60px rgba(52, 254, 250, 0.1);
+  }
+
+  .vsl-subheadline {
+    font-size: clamp(1.125rem, 2vw, 1.375rem);
+    font-weight: 300;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .vsl-subheadline.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .subheadline-accent {
+    color: rgba(249, 33, 120, 0.9);
+    font-style: italic;
+  }
+
+  /* Enhanced Video Section */
+  .vsl-video-container {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+    transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .vsl-video-container.animate-in {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  .video-glow-wrapper {
+    position: relative;
+  }
+
+  .video-player {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    z-index: 2;
+    position: relative;
+  }
+
+  .video-background-pattern {
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(circle at 25% 25%, rgba(253, 117, 4, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(52, 254, 250, 0.05) 0%, transparent 50%);
+    z-index: 1;
+  }
+
+  .video-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    z-index: 2;
+  }
+
+  .play-button-container {
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .play-button-container:hover {
+    transform: scale(1.1);
+  }
+
+  .play-button-container.clicked {
+    transform: scale(0.95);
+  }
+
+  .play-button {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(20px);
+    position: relative;
+    z-index: 3;
+    transition: all 0.3s ease;
+  }
+
+  .play-button:hover {
+    background: linear-gradient(135deg, rgba(253, 117, 4, 0.2), rgba(253, 117, 4, 0.05));
+    border-color: rgba(253, 117, 4, 0.6);
+    box-shadow: 0 0 40px rgba(253, 117, 4, 0.4);
+  }
+
+  .play-icon {
+    color: white;
+    margin-left: 4px;
+    transition: color 0.3s ease;
+  }
+
+  .play-button:hover .play-icon {
+    color: #FD7504;
+  }
+
+  .play-ripple {
+    position: absolute;
+    inset: -20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    animation: playRipple 2s ease-out infinite;
+  }
+
+  .ripple-2 {
+    animation-delay: 1s;
+  }
+
+  @keyframes playRipple {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1.5);
+      opacity: 0;
+    }
+  }
+
+  /* Video Info Overlays */
+  .video-info {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    gap: 12px;
+    z-index: 4;
+  }
+
+  .video-duration {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .duration-icon {
+    color: #ef4444;
+    font-size: 0.75rem;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  .video-quality {
+    background: linear-gradient(135deg, #FD7504, #34FEFA);
+    color: black;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+
+  .video-title-overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    max-width: 60%;
+    z-index: 4;
+  }
+
+  .video-title {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+    margin: 0;
+    border-left: 3px solid #FD7504;
+  }
+
+  /* Multiple Glow Layers */
+  .video-glow {
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    pointer-events: none;
+  }
+
+  .glow-layer-1 {
+    background: linear-gradient(45deg, rgba(253, 117, 4, 0.3), rgba(52, 254, 250, 0.3));
+    filter: blur(20px);
+    z-index: 1;
+    animation: glowPulse1 4s ease-in-out infinite;
+  }
+
+  .glow-layer-2 {
+    background: linear-gradient(-45deg, rgba(52, 254, 250, 0.2), rgba(249, 33, 120, 0.2));
+    filter: blur(30px);
+    z-index: 0;
+    animation: glowPulse2 6s ease-in-out infinite;
+  }
+
+  .glow-layer-3 {
+    background: radial-gradient(ellipse, rgba(255, 255, 255, 0.1), transparent);
+    filter: blur(40px);
+    z-index: -1;
+    animation: glowPulse3 8s ease-in-out infinite;
+  }
+
+  @keyframes glowPulse1 {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.05); }
+  }
+
+  @keyframes glowPulse2 {
+    0%, 100% { opacity: 0.2; transform: scale(1.02); }
+    50% { opacity: 0.5; transform: scale(1.08); }
+  }
+
+  @keyframes glowPulse3 {
+    0%, 100% { opacity: 0.1; transform: scale(1.05); }
+    50% { opacity: 0.3; transform: scale(1.1); }
+  }
+
+  /* Enhanced CTA Section */
+  .vsl-cta-section {
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .vsl-cta-section.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .cta-primary,
+  .cta-secondary {
+    padding: 18px 36px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+    overflow: hidden;
+    min-width: 200px;
+    justify-content: center;
+  }
+
+  .cta-primary {
+    background: linear-gradient(135deg, #FD7504, #ff8c42);
+    color: black;
+    box-shadow: 0 8px 32px rgba(253, 117, 4, 0.3);
+  }
+
+  .cta-primary:hover {
+    background: linear-gradient(135deg, #34FEFA, #5ffaff);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 48px rgba(253, 117, 4, 0.4);
+  }
+
+  .cta-bg-glow {
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, #FD7504, #34FEFA, #F92178);
+    border-radius: 8px;
+    z-index: -1;
+    opacity: 0;
+    filter: blur(8px);
+    transition: opacity 0.3s ease;
+  }
+
+  .cta-primary:hover .cta-bg-glow {
+    opacity: 0.7;
+  }
+
+  .cta-secondary {
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+  }
+
+  .cta-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 48px rgba(255, 255, 255, 0.1);
+  }
+
+  .cta-secondary-glow {
+    position: absolute;
+    inset: -1px;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+    border-radius: 8px;
+    z-index: -1;
+    opacity: 0;
+    filter: blur(4px);
+    transition: opacity 0.3s ease;
+  }
+
+  .cta-secondary:hover .cta-secondary-glow {
+    opacity: 1;
+  }
+
+  .cta-arrow {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+  }
+
+  .cta-primary:hover .cta-arrow {
+    transform: translateX(4px);
+  }
+
+  /* Mobile Optimizations */
+  @media (max-width: 768px) {
+    .vsl-container {
+      padding: 0 20px;
+      gap: 60px;
+    }
+
+    .vsl-headline {
+      font-size: 2rem;
+      margin-bottom: 24px;
+    }
+
+    .vsl-subheadline {
+      font-size: 1rem;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .cta-primary,
+    .cta-secondary {
+      width: 100%;
+      max-width: 300px;
+    }
+
+    .video-player {
+      border-radius: 12px;
+    }
+
+    .play-button {
+      width: 80px;
+      height: 80px;
+    }
+
+    .play-button svg {
+      width: 40px;
+      height: 40px;
+    }
+
+    .video-title {
+      font-size: 0.875rem;
+      padding: 10px 14px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .vsl-section {
+      padding: 80px 0;
+    }
+
+    .vsl-container {
+      gap: 40px;
+    }
+
+    .vsl-headline {
+      font-size: 1.75rem;
+    }
+
+    .play-button {
+      width: 70px;
+      height: 70px;
+    }
+
+    .play-button svg {
+      width: 35px;
+      height: 35px;
+    }
+  }
+</style> 
